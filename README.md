@@ -6,12 +6,12 @@ A simple service that proxies Everyprompt requests so that the front-end does no
 
 Requires the following env vars:
 
-- EVERYPROMPT_API_KEY: string
-- DOMAIN_WHITELIST: string[]
+- `EVERYPROMPT_API_KEY: string`
+- `DOMAIN_WHITELIST: string[]`
 
 ## Routes
 
-### POST /prompt
+### `POST /prompt`
 
 No auth req'd. Sample body:
 ```json
