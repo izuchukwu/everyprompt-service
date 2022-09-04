@@ -11,12 +11,11 @@ Requires the following env vars:
 
 ## Routes
 
-### `POST /prompt`
+### `POST /prompt/:teamID/:functionID`
 
 No auth req'd. Sample body:
 ```json
 {
-	"url": "https://everyprompt.com/[userID]/functions/[functionName]",
 	"userID": "testing",
 	"variables": {
 		"foo": "bar"
