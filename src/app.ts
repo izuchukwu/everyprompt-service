@@ -75,9 +75,7 @@ app.post('/prompt/:teamID/:functionID', async (req, res) => {
 	// Get the userID and variables from body
 	const parsedReq = promptReqFormat.safeParse(req.body)
 	if (!parsedReq.success) {
-		console.error(
-			`Failed to publish Project. Bad Request: ${parsedReq.error}`
-		)
+		console.error(`Failed to run prompt. Bad Request: ${parsedReq.error}`)
 		res.send({success: false, error: 0})
 		return
 	}
@@ -98,7 +96,7 @@ app.post('/prompt/:teamID/:functionID', async (req, res) => {
 	const epJSON = await epRes.json()
 
 	// Return Everyprompt result
-	res.status(epRes.status).send(epJSON)
+	res.status(epRes.status).send({success: epRes.ok, response: epJSON})
 })
 
 // Health checks
